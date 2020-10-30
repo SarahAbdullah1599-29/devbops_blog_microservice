@@ -23,10 +23,8 @@ pipeline {
          }
          stage('slack notify'){
              steps{
-                 slackSend channel: '﻿jenkinsnotify', color: '#1eff00', message: 'The blog services test has passed!'
-
-             }
-
-         }
+                 slackSend channel: '﻿jenkinsnotify', color: '#1eff00', message: 'The blog services test has passed! '
      }
+     }
+       }
      }
