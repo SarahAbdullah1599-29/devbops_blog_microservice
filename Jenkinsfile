@@ -30,7 +30,7 @@ pipeline {
              steps{
                  sh '''#!/bin/bash
                  git config --global user.email "dev.rahman96@gmail.com"
-                 git config --global user.name "Mo"
+                 git config --global user.name "dev-rahman96"
                  git checkout "QA"
                  git add *
                  git commit -m "Jenkins Approved"
