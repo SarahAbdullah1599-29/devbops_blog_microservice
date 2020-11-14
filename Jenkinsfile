@@ -29,7 +29,10 @@ pipeline {
         stage('Push out to Approved Repo'){
              steps{
                  sh '''#!/bin/bash
-                 echo "hello world"'''
+                 git checkout "QA"
+                 git add *
+                 git commit -m "Jenkins Approved"
+                 git push'''
                  
      }
      }
