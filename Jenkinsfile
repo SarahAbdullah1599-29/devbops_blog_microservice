@@ -29,6 +29,8 @@ pipeline {
         stage('Push out to Approved Repo'){
              steps{
                  sh '''#!/bin/bash
+                 git config --global user.email "dev.rahman96@gmail.com"
+                 git config --global user.name "Mo"
                  git checkout "QA"
                  git add *
                  git commit -m "Jenkins Approved"
