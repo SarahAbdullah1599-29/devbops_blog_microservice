@@ -2,6 +2,7 @@ pipeline {
      agent { docker { image 'python:3.7.2' } }
      environment {
         AWS_DEFAULT_REGION = 'us-east-1'
+        SERVER_CREDENTIALS = credentials('')
      }
      stages {
          stage('build') {
@@ -29,7 +30,7 @@ pipeline {
         stage('Push out to Approved Repo'){
              steps{
                  sh '''#!/bin/bash
-                 echo "Hello world"'''
+                 echo "Hello world!"'''
                  
      }
      }
