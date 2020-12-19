@@ -27,12 +27,6 @@ pipeline {
                  slackSend channel: '﻿jenkinsnotify', color: '#1eff00', message: 'The blog services test has passed! '
      }
      }
-        stage('Push out to Approved Repo'){
-             steps{
-                 sh '''#!/bin/bash
-                 echo "Hello world!"'''
-                 
-     }
-     }
+
        }
      }
