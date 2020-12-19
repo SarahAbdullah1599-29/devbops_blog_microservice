@@ -1,16 +1,23 @@
 pipeline {
-    agent none 
+    agent { docker { image 'python:3.7.2' } }
     stages {
-        stage('Build') { 
-            agent {
-                docker {
-                    image 'python:3.7.2' 
+        stage('build') {
+            steps {
+                   withEnv(["HOME=${env.WORKSPACE}"]) {
+                        sh "pip install flask --user"
+                        sh "pip install boto3 --user"
+                        sh "pip install bcrypt --user"
+                        sh 'pwd && echo $PATH'
+                    }
+                }
+        }
+        stage('test') {
+            steps {
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'python3 Test.py'
                 }
             }
-            steps {
-                sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
-                stash(name: 'compiled-results', includes: 'sources/*.py*') 
-            }
+    
         }
     }
 }
