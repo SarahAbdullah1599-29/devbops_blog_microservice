@@ -1,5 +1,7 @@
 pipeline {
-     agent any  
+    agent {
+        docker { image 'python:latest' }
+    }  
      environment {
         AWS_DEFAULT_REGION = 'us-east-1'
         SERVER_CREDENTIALS = credentials('')
